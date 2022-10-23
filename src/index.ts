@@ -1,41 +1,69 @@
 /**
- * This program tells you the length
- * required for a board foot.
+ * This is the main code that runs
+ * with the Vehicle Class.
  *
- * By:      Aidan Lalonde-Novales
+ * By:      Aidan Lalonde-Novales (mostly Mr Coxall)
  * Version: 1.0
- * Since:   2022-09-24
+ * Since:   2022-10-23
  */
 
-import promptSync from 'prompt-sync'
+import Vehicle from './Vehicle'
 
-const prompt = promptSync()
+// new Ford Focus
+console.log('Created Ford focus')
+const fordFocus = new Vehicle('B40-C4RR0', 'white', 4, 284)
 
-/**
- * @param {number} width Width of the wood
- * @param {number} height Height of the wood
- * @returns {number} length Length of the wood
- */
-function boardFoot(width: number, height: number): number {
-  const BOARD_FOOT = 144
-  const length = BOARD_FOOT / (width * height)
-  return length
-}
+console.log('Status:')
+fordFocus.status()
 
-console.log('This program calculates the required length for a board foot.')
+console.log('Accelerating, 10 of power for 10 sec.')
+fordFocus.accelerate(10, 10)
+console.log(`New speed: ${Number(fordFocus.getSpeed())}`)
 
-// Input
-const widthString = prompt('Enter the width of the wood (in): ')
-const width = parseFloat(widthString)
-const heightString = prompt('Enter the height of the wood (in): ')
-const height = parseFloat(heightString)
+console.log('Changing colour to black:')
+fordFocus.setColor('black')
+console.log(`New color: ${String(fordFocus.getColor())}`)
 
-// Process and Output
-if (isNaN(width) || isNaN(height)) {
-  console.log('\nInvalid Input.')
-} else {
-  const length = boardFoot(width, height)
-  console.log(`\nYour wood length should be ${length} inch(es) long.`)
-}
+console.log('')
+
+// new Ferrari
+console.log('Created a Ferrari')
+const ferrari = new Vehicle('VHD-35HU', 'red', 2, 320)
+
+console.log('Status:')
+ferrari.status()
+
+console.log('Accelerating, 100 of power for 4 sec.')
+ferrari.accelerate(100, 4)
+console.log(`New speed: ${Number(ferrari.getSpeed())}`)
+
+console.log('Breaking, 10 of power for 10 sec.')
+ferrari.break(10, 10)
+console.log(`New speed: ${Number(ferrari.getSpeed())}`)
+
+console.log('Changing color:')
+ferrari.setColor('racing red!')
+console.log(`New color: ${String(ferrari.getColor())}`)
+
+console.log('')
+
+// new Citroen Ami
+console.log('Created a Citroen Ami')
+const citroenAmi = new Vehicle('FS-695-DQ', 'blue', 2, 45)
+
+console.log('Status:')
+citroenAmi.status()
+
+console.log('Accelerating, 5 of power for 10 sec.')
+citroenAmi.accelerate(5, 10)
+console.log(`New speed: ${Number(citroenAmi.getSpeed())}`)
+
+console.log('Breaking, 2 of power for 10 sec.')
+citroenAmi.break(2, 10)
+console.log(`New speed: ${Number(citroenAmi.getSpeed())}`)
+
+console.log('Changing color:')
+citroenAmi.setColor('purple')
+console.log(`New color: ${String(citroenAmi.getColor())}`)
 
 console.log('\nDone.')
